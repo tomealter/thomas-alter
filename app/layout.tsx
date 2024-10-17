@@ -6,7 +6,6 @@ import '../source/01-global/index.css';
 import Footer from '../source/02-layouts/Footer/Footer';
 import Header from '../source/02-layouts/Header/Header';
 import SiteContainer from '../source/02-layouts/SiteContainer/SiteContainer';
-import BackToTop from '../source/03-components/BackToTop/BackToTop';
 import Menu from '../source/03-components/Menu/Menu';
 import ResponsiveMenu from '../source/03-components/Menu/ResponsiveMenu/ResponsiveMenu';
 import footerStyles from '../source/03-components/Menu/menu-footer.module.css';
@@ -54,7 +53,6 @@ function RootLayout({ children }: PropsWithChildren): JSX.Element {
             />
           </Footer>
         </SiteContainer>
-        <BackToTop text="Back to Top" topElement="top" />
       </body>
     </html>
   );

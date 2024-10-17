@@ -2,7 +2,6 @@ import { ReactNode } from 'react';
 import Footer from '../../02-layouts/Footer/Footer';
 import Header from '../../02-layouts/Header/Header';
 import SiteContainer from '../../02-layouts/SiteContainer/SiteContainer';
-import BackToTop from '../../03-components/BackToTop/BackToTop';
 import { FooterMenu } from '../../03-components/Menu/Menu.stories';
 import { ResponsiveMenu } from '../../03-components/Menu/ResponsiveMenu/ResponsiveMenu.stories';
 import { SiteName } from '../../03-components/SiteName/SiteName.stories';
@@ -38,7 +37,6 @@ function PageWrapper({ children }: PageWrapperProps): JSX.Element {
           )}
         </Footer>
       </SiteContainer>
-      <BackToTop text="Back to Top" topElement="top" />
     </>
   );
 }

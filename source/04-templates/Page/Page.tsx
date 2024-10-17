@@ -1,7 +1,6 @@
 import { JSX, ReactNode } from 'react';
 import { MAIN_ID } from '../../00-config/constants';
 import Main from '../../02-layouts/Main/Main';
-import Article from '../../03-components/Article/Article';
 
 interface PageProps {
   mainId?: string;
@@ -20,9 +19,8 @@ function Page({
     <>
       {preContent}
       <Main id={mainId}>
-        <Article title={title} showFooter={false}>
-          {children}
-        </Article>
+        <h1>{title}</h1>
+        {children}
       </Main>
     </>
   );
