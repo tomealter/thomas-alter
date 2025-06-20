@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import SectionLayout from './Section';
-import sectionArgs from './section.yml';
+import sectionArgs from './sectionArgs';
 
 const meta: Meta<typeof SectionLayout> = {
   title: 'Layouts/Section',

@@ -1,7 +1,7 @@
 'use client';
 
 import { GessoComponent } from 'gesso';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type JSX } from 'react';
 import Menu, { MenuItem } from '../Menu';
 import OverlayMenu from '../OverlayMenu/OverlayMenu';
 import styles from './responsive-menu.module.css';
@@ -54,3 +54,4 @@ function ResponsiveMenu({
 }
 
 export default ResponsiveMenu;
+export type { ResponsiveMenuProps };

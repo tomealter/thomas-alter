@@ -38,7 +38,7 @@ have more details about which to use when.
    You will need to install dependencies and run the app in the same environment (either Docker/Linux for both
    or your local OS for both). Otherwise, you can end up with incompatible versions of some packages.
    ```bash
-   ddev nextjs npm ci
+   ddev frontend install
    ```
 
 1. Start up the app by running `ddev start`:
@@ -66,21 +66,39 @@ generate the React components:
 ddev nextjs icons
 ```
 
+## Project organization
+- `app`: Queries and integration components. Any components that rely on a particular
+  CMS or content structure go here. Uses the Next.js App Router, so refer to the
+  [Next.js docs](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts)
+  for details on how the folder structure corresponds to routes.
+- `lib`: Helper files for `nextjs-project` itself, such as custom PostCSS plugins,
+  and scripts to facilitate setting up for a headless CMS.
+- `public`: [Static assets](https://nextjs.org/docs/app/building-your-application/optimizing/static-assets)
+- `source`: UI components. Components here contain only what's needed for front-end 
+  display and interactivity, no queries or anything CMS-specific. (Think, if it can be
+  displayed in Storybook, it probably goes here.)
+- `starterkits`: Starting code and examples for building a headless site for a specific
+  CMS (currently just Drupal, but WordPress is coming soon)
+- `types`: Type definitions. Anything within `__generated__` is generated automatically
+  and should not be edited manually.
+- `util`: Utility functions for working with CMSes or working with queries. Front-end
+  utilities and Storybook helpers are in `source/06-utility`
+
 ## Helpful commands
 
 ### Monitoring the applications
-If you want to monitor the status of `app` or `storybook`. Please use `ddev nextjs monit`
+If you want to monitor the status of `next` or `storybook`. Please use `ddev frontend monit`
 
 ### Restarting a specific service
-If you want to restart `storybook` or `app`, please use the following:
+If you want to restart `storybook` or `next`, please use the following:
 
 `app`
 ```bash
-ddev nextjs restart app
+ddev frontend restart next
 ```
 `storybook`
 ```bash
-ddev nextjs restart storybook
+ddev frontend restart storybook
 ```
 
 To restart the whole application
@@ -92,7 +110,7 @@ ddev restart
 ### Build production application
 
 ```bash
-ddev nextjs build
+ddev frontend build
 ```
 Runs `next build`, which builds the production application in the `.next` folder. For more information, see the [Next.js CLI documentation](https://nextjs.org/docs/api-reference/cli#build).
 
@@ -107,7 +125,7 @@ Runs `next start`, which starts a Node.js server that supports [hybrid pages](ht
 ### Export application to static HTML
 
 ```bash
-ddev nextjs export
+ddev frontend export
 ```
 
 Runs `next build && next export`. This allows you to export your app to static HTML (exported in the `out` folder), which can be run standalone without the need of a Node.js server. For more information, see the [Next.js Static HTML Export documentation](https://nextjs.org/docs/advanced-features/static-html-export).
@@ -115,7 +133,7 @@ Runs `next build && next export`. This allows you to export your app to static H
 ### Run linter
 
 ```bash
-ddev nextjs lint
+ddev frontend lint
 ```
 
 Runs `next lint`, which runs the ESLint command. This is useful to catch lint errors that you might miss during development. For more information, see the [Next.js ESLint documentation](https://nextjs.org/docs/basic-features/eslint).
@@ -125,7 +143,7 @@ Runs `next lint`, which runs the ESLint command. This is useful to catch lint er
 #### Prettier check
 
 ```bash
-ddev nextjs prettier
+ddev frontend prettier
 ```
 
 Runs `prettier --check`, which will check that all files within the `app` and `source` directories use the Prettier code style from `.prettierrc`. This might be redundant with the `lint` script above, since it extends whatever Prettier rules we have set.
@@ -133,7 +151,7 @@ Runs `prettier --check`, which will check that all files within the `app` and `s
 #### Prettier write
 
 ```bash
-ddev nextjs prettier:write
+ddev frontend prettier:write
 ```
 
 Runs `prettier --write`, which will find and fix all prettier issues found within the `app` and `source` directories. Note that this will automatically overwrite your files.
@@ -141,7 +159,7 @@ Runs `prettier --write`, which will find and fix all prettier issues found withi
 ### Run TypeScript compiler (tsc)
 
 ```bash
-ddev nextjs tsc
+ddev frontend tsc
 ```
 
 Runs `tsc --noEmit`, which will compile the TypeScript code without emitting files. This acts as a TS error check in your CLI. This is useful to catch TS errors that you might miss during development. For more information, see the [TypeScript Compiler (tsc) documentation](https://www.typescriptlang.org/docs/handbook/compiler-options.html).
@@ -153,6 +171,11 @@ Runs `tsc --noEmit`, which will compile the TypeScript code without emitting fil
 * Starting in Next.js v9.4, TypeScript errors do not show up in your browser when running the dev server (i.e. `npm run dev`). However, TS errors will prevent `next build` (i.e. `npm run build`) from running successfully. You can run `npm run lint` and `npm run tsc` to check for issues, which will give you lint and TS errors that will most likely cause your builds to fail. Note also that if you have [`husky`](https://typicode.github.io/husky/#/) installed, these will automatically run when you attempt to commit to a branch.
 * The current favicon implementation will probably not display correctly locally in Chrome (v94), but does display correctly in Firefox and Safari. Note that the favicon _does_ display correctly once deployed. Not sure why.
 
+### Vendor Cascade Layer
+A cascade layer ([https://developer.mozilla.org/en-US/docs/Web/CSS/@layer](https://developer.mozilla.org/en-US/docs/Web/CSS/@layer)) for thrid-party css is available called vendor.
+
+CSS can be added to this layer using @import. Ex: `@import "@thirdparty/dist/css/thirdparty-core.min.css" layer(vendor);`
+This can be added within the files for component and layout styles using the third-party package.
 
 ## Helpful tips
 
@@ -170,7 +193,7 @@ If you would want to use `npm`, please do `ddev npm [package]`.
 
 ### If the application never starts
 
-To verify that it is working please run: `ddev nextjs monit` and if it is not working as expected please try the following:
+To verify that it is working please run: `ddev frontend monit` and if it is not working as expected please try the following:
 * Stop DDev, `ddev stop`
 * Remove `node_modules`
 * Then restart DDev, `ddev start`

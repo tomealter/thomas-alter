@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { GessoComponent } from 'gesso';
-import { ReactNode } from 'react';
+import { JSX, ReactNode } from 'react';
 import styles from './sidebar.module.css';
 
 interface SidebarProps extends GessoComponent {
@@ -33,18 +33,19 @@ function Sidebar({
     >
       {header && <div className={styles.full}>{header}</div>}
       {sidebarFirst && (
-        <aside className={styles.sidebar} aria-label={sidebarFirstLabel}>
+        <div className={styles.sidebar} aria-label={sidebarFirstLabel}>
           {sidebarFirst}
-        </aside>
+        </div>
       )}
       {main && <div>{main}</div>}
       {sidebarSecond && (
-        <aside className={styles.sidebar} aria-label={sidebarSecondLabel}>
+        <div className={styles.sidebar} aria-label={sidebarSecondLabel}>
           {sidebarSecond}
-        </aside>
+        </div>
       )}
     </div>
   );
 }
 
 export default Sidebar;
+export type { SidebarProps };

@@ -1,7 +1,9 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
 import getCssVariables from '../../06-utility/storybook/getCssVariables';
 import styles from './color.module.css';
+
+import type { JSX } from 'react';
 
 interface ColorItem {
   name: string;

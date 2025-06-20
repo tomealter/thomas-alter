@@ -3,6 +3,8 @@ import { GessoComponent } from 'gesso';
 import Link from 'next/link';
 import styles from './read-more-link.module.css';
 
+import type { JSX } from 'react';
+
 interface ReadMoreLinkProps extends GessoComponent {
   url: string;
   label?: string;
@@ -45,3 +47,4 @@ function ReadMoreLink({
 }
 
 export default ReadMoreLink;
+export type { ReadMoreLinkProps };

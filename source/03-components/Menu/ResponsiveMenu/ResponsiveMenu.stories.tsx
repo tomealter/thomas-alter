@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import ResponsiveMenuComponent from './ResponsiveMenu';
-import responsiveMenuArgs from './responsive-menu.yml';
+import responsiveMenuArgs from './responsiveMenuArgs';
 
 const meta: Meta<typeof ResponsiveMenuComponent> = {
   title: 'Components/Menu/Responsive Menu',
@@ -10,9 +10,6 @@ const meta: Meta<typeof ResponsiveMenuComponent> = {
 
 type Story = StoryObj<typeof ResponsiveMenuComponent>;
 const ResponsiveMenu: Story = {
-  // Workaround to allow story to be imported elsewhere.
-  // See https://github.com/storybookjs/storybook/issues/22278
-  render: args => <ResponsiveMenuComponent {...args} />,
   args: responsiveMenuArgs,
 };
 

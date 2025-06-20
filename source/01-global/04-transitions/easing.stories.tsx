@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import { Property } from 'csstype';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
 import getCssVariables from '../../06-utility/storybook/getCssVariables';
@@ -18,11 +18,15 @@ const easing = allVars.reduce((allEases, [key, value]) => {
   return allEases;
 }, {} as EasingOptions);
 
-const EasingComponent = ({ easing }: { easing: EasingOptions }) => {
+const EasingComponent = ({
+  easing: easingOptions,
+}: {
+  easing: EasingOptions;
+}) => {
   return (
     <div className={styles.easing}>
       <div className={styles.helptext}>(Hover to demo easing)</div>
-      {Object.entries(easing).map(([ease, transitionTimingFunction]) => (
+      {Object.entries(easingOptions).map(([ease, transitionTimingFunction]) => (
         <div className={styles.group} key={`easing-${ease}`}>
           <div className={styles.item}>
             <div

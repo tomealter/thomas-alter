@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import { GessoComponent } from 'gesso';
-import { ReactNode } from 'react';
+import { ReactNode, type JSX } from 'react';
 import styles from './grid.module.css';
 
 interface GridProps extends GessoComponent {
@@ -26,3 +26,4 @@ function Grid({
 }
 
 export default Grid;
+export type { GridProps };

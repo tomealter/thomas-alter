@@ -1,5 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import { withGlobalWrapper } from '../../../../.storybook/decorators';
+
+import type { JSX } from 'react';
 
 const meta: Meta = {
   title: 'Global/HTML Elements/Blockquote',

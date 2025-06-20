@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import SkiplinkComponent from './Skiplink';
-import skiplinkArgs from './skiplink.yml';
+import skiplinkArgs from './skiplinkArgs';
 
 const meta: Meta<typeof SkiplinkComponent> = {
   title: 'Components/Skiplink',

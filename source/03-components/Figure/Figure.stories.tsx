@@ -1,8 +1,10 @@
-import { Meta, StoryObj } from '@storybook/react';
-import parse from 'html-react-parser';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
+import Video from '../Video/Video';
+import { Video as VideoStory } from '../Video/Video.stories';
 import FigureComponent from './Figure';
-import figureArgs from './figure.yml';
+import styles from './figure.module.css';
+import figureArgs from './figureArgs';
 
 const meta: Meta<typeof FigureComponent> = {
   title: 'Components/Figure',
@@ -14,10 +16,7 @@ const meta: Meta<typeof FigureComponent> = {
 type Story = StoryObj<typeof FigureComponent>;
 
 const Default: Story = {
-  args: {
-    ...figureArgs,
-    media: parse(figureArgs.media),
-  },
+  args: figureArgs,
 };
 
 const FigureCentered: Story = {
@@ -41,5 +40,44 @@ const FigureRightAligned: Story = {
   },
 };
 
+const FigureWithVideo: Story = {
+  args: {
+    media: <Video {...VideoStory.args} />,
+    caption:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla semper vel metus at cursus.',
+    modifierClasses: styles['figure--iframe'],
+  },
+};
+
+const FigureWithVideoCentered: Story = {
+  args: {
+    ...FigureWithVideo.args,
+    modifierClasses: [styles['figure--iframe'], 'u-align-center'],
+  },
+};
+
+const FigureWithVideoLeftAligned: Story = {
+  args: {
+    ...FigureWithVideo.args,
+    modifierClasses: [styles['figure--iframe'], 'u-align-left'],
+  },
+};
+
+const FigureWithVideoRightAligned: Story = {
+  args: {
+    ...FigureWithVideo.args,
+    modifierClasses: [styles['figure--iframe'], 'u-align-right'],
+  },
+};
+
 export default meta;
-export { Default, FigureCentered, FigureLeftAligned, FigureRightAligned };
+export {
+  Default,
+  FigureCentered,
+  FigureLeftAligned,
+  FigureRightAligned,
+  FigureWithVideo,
+  FigureWithVideoCentered,
+  FigureWithVideoLeftAligned,
+  FigureWithVideoRightAligned,
+};

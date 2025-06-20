@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import Menu from './Menu';
 import footerStyles from './menu-footer.module.css';
-import footerMenuArgs from './menu-footer.yml';
-import menuArgs from './menu.yml';
+import menuArgs from './menuArgs';
+import footerMenuArgs from './menuFooterArgs';
 
 const meta: Meta<typeof Menu> = {
   title: 'Components/Menu',
@@ -15,9 +15,6 @@ const Default: Story = {
   args: menuArgs,
 };
 const FooterMenu: Story = {
-  // Workaround to allow story to be imported elsewhere.
-  // See https://github.com/storybookjs/storybook/issues/22278
-  render: args => <Menu {...args} />,
   args: {
     ...footerMenuArgs,
     modifierClasses: footerStyles.menu,

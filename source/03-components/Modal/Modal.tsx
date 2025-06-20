@@ -3,18 +3,19 @@
 import clsx from 'clsx';
 import { GessoComponent } from 'gesso';
 import {
+  JSX,
   KeyboardEventHandler,
   MouseEventHandler,
+  PropsWithChildren,
   useEffect,
   useId,
   useRef,
 } from 'react';
 import styles from './modal.module.css';
 
-interface ModalProps extends GessoComponent {
+interface ModalProps extends PropsWithChildren<GessoComponent> {
   id?: string;
   title?: string;
-  children: React.ReactNode;
   defaultOpen?: boolean;
 }
 
@@ -28,6 +29,34 @@ function Modal({
   const dialogRef = useRef<HTMLDialogElement>(null);
   const generatedId = useId();
   const modalId = id || generatedId;
+
+  // Function to show modal
+  const openModal = () => {
+    const modal = dialogRef.current;
+    if (!modal) return;
+
+    modal.showModal();
+
+    // Turn off scrolling on the body
+    document.body.classList.add('has-open-modal');
+
+    const event = new CustomEvent('openmodal');
+    modal.dispatchEvent(event);
+  };
+
+  // Function to close modal
+  const closeModal = () => {
+    const modal = dialogRef.current;
+    if (!modal) return;
+
+    modal.close();
+
+    // Turn on scrolling on the body
+    document.body.classList.remove('has-open-modal');
+
+    const event = new CustomEvent('closemodal');
+    modal.dispatchEvent(event);
+  };
 
   useEffect(() => {
     if (defaultOpen) {
@@ -91,34 +120,6 @@ function Modal({
     }
   };
 
-  // Function to show modal
-  const openModal = () => {
-    const modal = dialogRef.current;
-    if (!modal) return;
-
-    modal.showModal();
-
-    // Turn off scrolling on the body
-    document.body.classList.add('has-open-modal');
-
-    const event = new CustomEvent('openmodal');
-    modal.dispatchEvent(event);
-  };
-
-  // Function to close modal
-  const closeModal = () => {
-    const modal = dialogRef.current;
-    if (!modal) return;
-
-    modal.close();
-
-    // Turn on scrolling on the body
-    document.body.classList.remove('has-open-modal');
-
-    const event = new CustomEvent('closemodal');
-    modal.dispatchEvent(event);
-  };
-
   return (
     <dialog
       ref={dialogRef}
@@ -152,3 +153,4 @@ function Modal({
 }
 
 export default Modal;
+export type { ModalProps };

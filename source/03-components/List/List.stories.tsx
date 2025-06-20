@@ -1,6 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
 import listStyles from './list.module.css';
+
+import type { JSX } from 'react';
 
 function DemoList({ style }: { style: string }): JSX.Element {
   return (

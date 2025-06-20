@@ -1,5 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { WYSIWYG } from '../03-components/Wysiwyg/Wysiwyg.stories';
+import { WYSIWYG as WysiwygStory } from '@/source/03-components/Wysiwyg/Wysiwyg.stories';
+import { Meta, StoryObj } from '@storybook/nextjs';
+import Breadcrumb from '../03-components/Breadcrumb/Breadcrumb';
+import { Breadcrumb as BreadcrumbStory } from '../03-components/Breadcrumb/Breadcrumb.stories';
+import Wysiwyg from '../03-components/Wysiwyg/Wysiwyg';
 import PageTemplate, { PageProps } from '../04-templates/Page/Page';
 import PageWrapper from './page-wrappers/default';
 
@@ -19,8 +22,9 @@ const Page: StoryObj<PageStoryArgs> = {
   ),
   args: {
     page: {
+      preContent: <Breadcrumb {...BreadcrumbStory.args} />,
       title: 'Page Title',
-      children: WYSIWYG.render && <WYSIWYG.render {...WYSIWYG.args} />,
+      children: <Wysiwyg {...WysiwygStory.args} />,
     },
   },
 };

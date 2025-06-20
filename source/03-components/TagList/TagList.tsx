@@ -3,6 +3,8 @@ import { GessoComponent } from 'gesso';
 import Tag, { TagProps } from '../Tag/Tag';
 import styles from './tag-list.module.css';
 
+import type { JSX } from 'react';
+
 interface TagListProps extends GessoComponent {
   items: TagProps[];
 }
@@ -20,3 +22,4 @@ function TagList({ items, modifierClasses }: TagListProps): JSX.Element {
 }
 
 export default TagList;
+export type { TagListProps };

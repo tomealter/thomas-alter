@@ -1,11 +1,13 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
 import {
   Button as ButtonComponent,
   LinkButton as LinkButtonComponent,
   SharedButtonProps,
 } from './Button';
-import buttonArgs from './button.yml';
+import buttonArgs from './buttonArgs';
+
+import type { JSX } from 'react';
 
 function DemoButtons({ label, ...props }: SharedButtonProps): JSX.Element {
   return (
@@ -32,7 +34,6 @@ const meta: Meta<typeof DemoButtons> = {
       control: {
         type: 'radio',
       },
-      defaultValue: 'primary',
     },
   },
 };

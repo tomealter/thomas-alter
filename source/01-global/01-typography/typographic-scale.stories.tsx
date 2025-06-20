@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/nextjs';
 import { Property } from 'csstype';
 import { useEffect, useState } from 'react';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
@@ -48,7 +48,7 @@ const TypographicScale: StoryObj = {
     useEffect(() => {
       const allVars = getCssVariables();
 
-      const fonts = allVars.reduce((allFonts, [key, value]) => {
+      const fontOptions = allVars.reduce((allFonts, [key, value]) => {
         if (key.indexOf('--font-family') === 0) {
           const name =
             key.substring(14).charAt(0).toUpperCase() +
@@ -57,7 +57,7 @@ const TypographicScale: StoryObj = {
         }
         return allFonts;
       }, {} as FontOptions);
-      setFonts(fonts);
+      setFonts(fontOptions);
 
       const fontSizes = allVars.reduce(
         (allResponsiveFontSizes, [key, value]) => {
