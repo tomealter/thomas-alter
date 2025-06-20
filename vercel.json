@@ -1,9 +1,0 @@
-{
-  "buildCommand": "npm run build && npm run build-storybook",
-  "outputDirectory": ".next",
-  "functions": {
-    "app/**/*.tsx": {
-      "maxDuration": 30
-    }
-  }
-}
