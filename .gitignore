@@ -38,4 +38,4 @@ yarn-error.log*
 tsconfig.tsbuildinfo
 
 # Storybook build files
-storybook-static/
+storybook/
