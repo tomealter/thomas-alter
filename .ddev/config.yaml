@@ -1,4 +1,4 @@
-name: nextjs-project
+name: thomas-alter
 type: php
 docroot: public
 php_version: "8.3"
