@@ -1,5 +1,6 @@
 import '../source/00-config/index.css';
-import sourceSansPro from '../source/01-global/fonts/source-sans';
+import workSans from '../source/01-global/fonts/work-sans';
+import outfit from '../source/01-global/fonts/outfit';
 import '../source/01-global/index.css';
 import '../source/06-utility/index.css';
 
@@ -68,7 +69,7 @@ const withWritingDirection = (Story, context) => {
 
 const withFonts = Story => (
   <div
-    className={sourceSansPro.variable}
+    className={`${workSans.variable} ${outfit.variable}`}
     style={{ display: 'contents', fontFamily: 'var(--font-family-primary)' }}
   >
     <Story />

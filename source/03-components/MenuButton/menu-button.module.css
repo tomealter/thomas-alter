@@ -1,0 +1,54 @@
+@import 'mixins';
+
+@layer components {
+  .button {
+    @include focus();
+
+    align-items: center;
+    background-color: var(--brand-neon-base);
+    block-size: 56px;
+    border: 0;
+    border-radius: 50%;
+    color: var(--grayscale-gray-7);
+    cursor: pointer;
+    display: flex;
+    inline-size: 56px;
+    justify-content: center;
+    padding: 0;
+    transition: background-color var(--duration-short) var(--easing-ease-in-out);
+
+    &:hover {
+      background-color: var(--grayscale-white);
+    }
+  }
+
+  .icon,
+  .close {
+    position: absolute;
+    transition: opacity var(--duration-short) var(--easing-ease-in-out);
+  }
+
+  .icon {
+    block-size: 28px;
+    inline-size: 28px;
+    opacity: 1;
+    visibility: visible;
+
+    .is-open & {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .close {
+    block-size: 20px;
+    inline-size: 20px;
+    opacity: 0;
+    visibility: hidden;
+
+    .is-open & {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}

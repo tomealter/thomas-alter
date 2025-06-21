@@ -1,0 +1,109 @@
+@layer layouts {
+  .wrapper {
+    block-size: 100dvh;
+    border: solid 16px var(--grayscale-gray-6);
+    border-radius: 36px;
+    inline-size: 100dvw;
+    outline: solid 300px var(--grayscale-gray-6);
+    outline-offset: -1px;
+    transition: border-radius var(--duration-standard) var(--ease-in-out);
+
+    @media (--tablet-lg) {
+      border-radius: 300px 36px;
+    }
+  }
+
+  .menu-wrapper {
+    align-items: center;
+    background-color: var(--grayscale-gray-6);
+    block-size: 90px;
+    border-bottom-left-radius: 36px;
+    content: '';
+    display: flex;
+    inline-size: 90px;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    padding-inline-start: var(--spacing-3);
+    position: absolute;
+    transition: inline-size var(--duration-standard) var(--easing-ease-in-out);
+
+    @media (--tablet) {
+      padding-inline-start: var(--spacing-5);
+    }
+
+    &.is-open {
+      inline-size: 300px;
+
+      @media (--tablet) {
+        inline-size: 360px;
+      }
+    }
+  }
+
+  .button {
+    inset-block-start: 16px;
+    inset-inline-end: 16px;
+    position: absolute;
+  }
+
+  .menu-curve {
+    block-size: 36px;
+    inline-size: 36px;
+    inset-block-start: 16px;
+    inset-inline-end: calc(100% - 1px);
+    overflow: hidden;
+    position: absolute;
+  
+    &::before {
+      block-size: 250%;
+      border-radius: 50%;
+      box-shadow: 50px -50px 0 0 var(--grayscale-gray-6);
+      content: "";
+      display: block;
+      inline-size: 250%;
+      inset-block-start: 0;
+      inset-inline-end: 0;
+      position: absolute;
+    }
+
+    &.top {
+      inset-block-start: 16px;
+      inset-inline-end: calc(100% - 1px);
+    }
+
+    &.bottom {
+      inset-block-start: calc(100% - 1px);
+      inset-inline-end: 16px;
+    }
+  }
+
+  .menu {
+    display: flex;
+    gap: var(--spacing-2);
+
+    @media (--tablet) {
+      gap: var(--spacing-3);
+    }
+  }
+
+  .menu-link {
+    display: inline-block;
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 1px;
+    opacity: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-underline-offset: 5px;
+    visibility: hidden;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    @media (--tablet) {
+      font-size: var(--font-size-3);
+    }
+  }
+}

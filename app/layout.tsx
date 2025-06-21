@@ -1,7 +1,8 @@
 import '../source/00-config/index.css';
 
+import outfit from '@/source/01-global/fonts/outfit';
+import workSans from '@/source/01-global/fonts/work-sans';
 import { JSX, PropsWithChildren } from 'react';
-import sourceSansPro from '../source/01-global/fonts/source-sans';
 import '../source/01-global/index.css';
 import Footer from '../source/02-layouts/Footer/Footer';
 import Header from '../source/02-layouts/Header/Header';
@@ -16,7 +17,7 @@ import '../source/06-utility/index.css';
 
 function RootLayout({ children }: PropsWithChildren): JSX.Element {
   return (
-    <html lang="en" className={sourceSansPro.variable}>
+    <html lang="en" className={`${workSans.variable} ${outfit.variable}`}>
       <body id="top">
         <Skiplink />
         <SiteContainer>

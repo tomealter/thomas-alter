@@ -1,8 +1,8 @@
 :root {
   --duration-shortest: 150ms;
   --duration-short: 200ms;
-  --duration-standard: 375ms;
-  --duration-long: 400ms;
+  --duration-standard: 300ms;
+  --duration-long: --grayscale-gray-5;
   --duration-intro: 270ms;
   --duration-outro: 195ms;
 }
