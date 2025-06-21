@@ -1,5 +1,5 @@
 :root {
-  --background-site: var(--grayscale-white);
+  --background-site: var(--grayscale-gray-7);
 
   --button-background-active: var(--brand-blue-dark-1);
   --button-background-color: var(--brand-blue-base);
@@ -17,33 +17,33 @@
   --mark-background: var(--other-yellow-neon);
   --mark-text: var(--grayscale-gray-7);
 
-  --selection-background: var(--brand-blue-base);
-  --selection-text: var(--grayscale-white);
+  --selection-background: var(--brand-neon-base);
+  --selection-text: var(--grayscale-gray-7);
 
-  --table-background: var(--grayscale-white);
-  --table-background-foot: var(--grayscale-gray-1);
-  --table-background-head: var(--grayscale-gray-1);
-  --table-border: var(--grayscale-gray-5);
+  --table-background: var(--grayscale-gray-6);
+  --table-background-foot: var(--grayscale-gray-7);
+  --table-background-head: var(--grayscale-gray-7);
+  --table-border: var(--grayscale-white);
 
-  --text-link: var(--brand-blue-base);
-  --text-link-active: var(--brand-blue-dark);
-  --text-link-hover: var(--brand-blue-dark);
-  --text-link-visited: var(--brand-blue-dark);
+  --text-link: var(--brand-neon-base);
+  --text-link-active: var(--brand-neon-base);
+  --text-link-hover: var(--brand-neon-base);
+  --text-link-visited: var(--brand-neon-base);
   --text-on-dark: var(--grayscale-white);
   --text-on-light: var(--grayscale-gray-7);
-  --text-primary: var(--grayscale-gray-7);
-  --text-secondary: var(--grayscale-gray-5);
+  --text-primary: var(--grayscale-white);
+  --text-secondary: var(--grayscale-gray-3);
 
-  --ui-accent: var(--brand-blue-base);
+  --ui-accent: var(--brand-neon-base);
   --ui-accent-dark: var(--brand-blue-dark-1);
-  --ui-accent-light: var(--brand-blue-light);
-  --ui-background: var(--grayscale-gray-3);
+  --ui-accent-light: var(--brand-neon-base);
+  --ui-background: var(--brand-neon-base);
   --ui-background-dark: var(--grayscale-gray-6);
   --ui-background-light: var(--grayscale-gray-1);
   --ui-border: var(--grayscale-gray-3);
   --ui-border-dark: var(--grayscale-gray-6);
   --ui-border-light: var(--grayscale-gray-1);
-  --ui-focus: var(--brand-blue-light);
-  --ui-text-dark: var(--grayscale-gray-5);
+  --ui-focus: var(--brand-neon-base);
+  --ui-text-dark: var(--brand-neon-base);
   --ui-text-light: var(--grayscale-gray-3);
 }

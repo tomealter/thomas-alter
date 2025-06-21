@@ -19,6 +19,9 @@ const Icons = {
   AngleUp: dynamic(() => import('./AngleUp'), {
     loading: () => <svg className="icon"></svg>,
   }),
+  ArrowAngled: dynamic(() => import('./ArrowAngled'), {
+    loading: () => <svg className="icon"></svg>,
+  }),
   Close: dynamic(() => import('./Close'), {
     loading: () => <svg className="icon"></svg>,
   }),
@@ -28,7 +31,19 @@ const Icons = {
   Linkedin: dynamic(() => import('./Linkedin'), {
     loading: () => <svg className="icon"></svg>,
   }),
+  RoundedArrowDown: dynamic(() => import('./RoundedArrowDown'), {
+    loading: () => <svg className="icon"></svg>,
+  }),
   Rss: dynamic(() => import('./Rss'), {
+    loading: () => <svg className="icon"></svg>,
+  }),
+  TaBackground: dynamic(() => import('./TaBackground'), {
+    loading: () => <svg className="icon"></svg>,
+  }),
+  ThomasAlterLogo: dynamic(() => import('./ThomasAlterLogo'), {
+    loading: () => <svg className="icon"></svg>,
+  }),
+  ThreeDots: dynamic(() => import('./ThreeDots'), {
     loading: () => <svg className="icon"></svg>,
   }),
   Twitter: dynamic(() => import('./Twitter'), {
