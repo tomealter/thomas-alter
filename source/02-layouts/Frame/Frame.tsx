@@ -21,9 +21,9 @@ function Frame({ modifierClasses, children }: FrameProps): JSX.Element {
         gsap.to('.menu-link', {
           delay: 0.25,
           duration: 0.25,
-          ease: 'power2.inOut',
+          ease: 'power3.inOut',
           opacity: 1,
-          stagger: 0.1,
+          stagger: 0.15,
           y: 0,
           visibility: 'visible',
         });
@@ -31,7 +31,7 @@ function Frame({ modifierClasses, children }: FrameProps): JSX.Element {
         gsap.to('.menu-link', {
           duration: 0,
           opacity: 0,
-          y: '-=16px',
+          y: '-=12px',
           visibility: 'hidden',
         });
       }
