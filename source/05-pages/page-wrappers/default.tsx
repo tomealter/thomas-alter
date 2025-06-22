@@ -1,3 +1,4 @@
+import Frame from '@/source/02-layouts/Frame/Frame';
 import { FooterMenu as FooterMenuStory } from '@/source/03-components/Menu/Menu.stories';
 import { ReactNode, type JSX } from 'react';
 import Footer from '../../02-layouts/Footer/Footer';
@@ -20,6 +21,7 @@ function PageWrapper({ children }: PageWrapperProps): JSX.Element {
     <>
       <Skiplink />
       <SiteContainer>
+        <Frame />
         <Header>
           <SiteName
             siteName={SiteNameStory.args?.siteName || ''}
