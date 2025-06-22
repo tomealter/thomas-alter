@@ -1,4 +1,25 @@
 @layer layouts {
   .site-container {
   }
+
+  .background {
+    block-size: auto;
+    color: var(--grayscale-gray-6);
+    inline-size: 120dvw;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    position: fixed;
+    transform: translate(-53%, -50%) rotate(28deg);
+    transform-origin: center;
+    z-index: -1;
+
+    @media (--tablet) {
+      inline-size: 80dvw;
+      transform: translate(-50%, -50%) rotate(0);
+    }
+
+    path {
+      fill: currentColor;
+    }
+  }
 }

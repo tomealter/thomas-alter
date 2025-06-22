@@ -1,0 +1,88 @@
+@import 'mixins';
+
+@layer components {
+  .wrapper {
+  }
+  
+  .inner {
+    align-items: center;
+    block-size: 100dvh;
+    display: flex;
+    inset: 0;
+    justify-content: center;
+  }
+
+  .logo {
+    block-size: auto;
+    color: var(--brand-neon-base);
+    inline-size: 100%;
+    margin-block-start: calc(-1 * var(--spacing-8));
+    overflow: visible;
+    padding-inline: var(--spacing-3);
+
+    @media (--tablet) {
+      inline-size: 70dvw;
+    }
+
+    @media (--desktop-lg) {
+      inline-size: 60dvw;
+    }
+
+    path,
+    polygon {
+      fill: currentColor;
+    }
+  }
+
+  .tagline {
+    inline-size: 250px;
+    inset-block-end: var(--spacing-3);
+    inset-inline-end: var(--spacing-5);
+    position: absolute;
+    text-align: right;
+
+    @media (--tablet) {
+      inset-block-end: 5dvw;
+      inset-inline-end: 5dvw;
+      text-align: left;
+    }
+  }
+
+  .scroll {
+    font-family: var(--font-family-secondary);
+    font-size: var(--responsive-font-size-9);
+    font-weight: var(--font-weight-bold);
+    inset-block-start: calc(100dvh - 245px);
+    inset-inline-start: calc(-1 * var(--spacing-1));
+    line-height: 1;
+    position: absolute;
+    text-transform: uppercase;
+    transform: rotate(90deg);
+    transform-origin: center;
+
+    @media (--tablet) {
+      inset-block-start: calc(100dvh - 260px);
+      inset-inline-start: 0;
+    }
+
+    &::before,
+    &::after {
+      background-color: var(--brand-neon-base);
+      block-size: 1px;
+      content: '';
+      display: block;
+      inset-inline-start: calc(100% + var(--spacing-2));
+      position: absolute;
+    }
+
+    &::before {
+      inline-size: 120px;
+      inset-block-start: 30%;
+    }
+
+    &::after {
+      inline-size: 90px;
+      inset-block-start: 70%;
+    }
+  }
+}
