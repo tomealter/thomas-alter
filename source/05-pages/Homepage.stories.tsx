@@ -1,15 +1,11 @@
 import { Meta, StoryObj } from '@storybook/nextjs';
-import { CardProps } from '../03-components/Card/Card';
-import { Default as CardStory } from '../03-components/Card/Card.stories';
-import Hero from '../03-components/Hero/Hero';
-import { HeroBgImageProps } from '../03-components/HeroBgImage/HeroBgImage';
-import { Default as HeroStory } from '../03-components/HeroBgImage/HeroBgImage.stories';
+import Hero, { HeroProps } from '../03-components/Hero/Hero';
+import { Default as HeroStory } from '../03-components/Hero/Hero.stories';
 import LandingPage from '../04-templates/LandingPage/LandingPage';
 import PageWrapper from './page-wrappers/default';
 
 interface HomepageStoryArgs {
-  card: Partial<CardProps>;
-  hero: Partial<HeroBgImageProps>;
+  hero: Partial<HeroProps>;
 }
 
 const settings: Meta<HomepageStoryArgs> = {
@@ -27,7 +23,6 @@ const Homepage: StoryObj<HomepageStoryArgs> = {
 };
 Homepage.args = {
   hero: HeroStory.args,
-  card: CardStory.args,
 };
 
 export default settings;

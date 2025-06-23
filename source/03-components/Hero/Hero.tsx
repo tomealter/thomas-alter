@@ -6,9 +6,11 @@ import gsap from 'gsap';
 import { JSX, useRef } from 'react';
 import styles from './hero.module.css';
 
-type HeroProps = GessoComponent;
+interface HeroProps extends GessoComponent {
+  tagline?: string;
+}
 
-function Hero({ modifierClasses }: HeroProps): JSX.Element {
+function Hero({ modifierClasses, tagline }: HeroProps): JSX.Element {
   const heroRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -62,9 +64,7 @@ function Hero({ modifierClasses }: HeroProps): JSX.Element {
         <SvgThomasAlterLogo className={styles.logo} />
         <div className={clsx(styles.scroll, 'scroll')}>Scroll</div>
         <div className={clsx(styles.tagline, 'tagline')}>
-          <p>
-            Front end engineer with a passion for animation and design systems
-          </p>
+          <p>{tagline}</p>
         </div>
       </div>
     </div>
