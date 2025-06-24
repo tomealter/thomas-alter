@@ -2,6 +2,8 @@
 
 @layer components {
   .wrapper {
+    block-size: 100dvh;
+    max-block-size: 100dvh;
   }
   
   .inner {
@@ -10,6 +12,7 @@
     display: flex;
     inset: 0;
     justify-content: center;
+    max-block-size: 100dvh;
   }
 
   .logo {
@@ -17,8 +20,11 @@
     color: var(--brand-neon-base);
     inline-size: 100%;
     margin-block-start: calc(-1 * var(--spacing-8));
+    max-block-size: 100dvh;
     overflow: visible;
     padding-inline: var(--spacing-3);
+    position: absolute;
+    transform-origin: 39.5% 15.5%;
 
     @media (--tablet) {
       inline-size: 70dvw;

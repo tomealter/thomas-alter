@@ -3,6 +3,7 @@ import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import { GessoComponent } from 'gesso';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import { JSX, useRef } from 'react';
 import styles from './hero.module.css';
 
@@ -11,11 +12,14 @@ interface HeroProps extends GessoComponent {
 }
 
 function Hero({ modifierClasses, tagline }: HeroProps): JSX.Element {
+  gsap.registerPlugin(ScrollTrigger);
   const heroRef = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      gsap.fromTo(
+      const introTl = gsap.timeline();
+      // Animate hero in on load
+      introTl.fromTo(
         '.logo-1',
         {
           x: '100%',
@@ -28,7 +32,7 @@ function Hero({ modifierClasses, tagline }: HeroProps): JSX.Element {
           autoAlpha: 1,
         },
       );
-      gsap.fromTo(
+      introTl.fromTo(
         '.logo-2',
         {
           x: '-100%',
@@ -40,8 +44,9 @@ function Hero({ modifierClasses, tagline }: HeroProps): JSX.Element {
           x: 0,
           autoAlpha: 1,
         },
+        '<',
       );
-      gsap.fromTo(
+      introTl.fromTo(
         ['.tagline', '.scroll'],
         {
           autoAlpha: 0,
@@ -50,21 +55,53 @@ function Hero({ modifierClasses, tagline }: HeroProps): JSX.Element {
           duration: 1,
           ease: 'power3.inOut',
           autoAlpha: 1,
-          delay: 1.25,
         },
+        '>',
       );
+
+      // On scroll animate hero out
+      const outroTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heroRef.current,
+          start: 'top top',
+          end: '+=600',
+          pin: true,
+          scrub: 1,
+          markers: false,
+          invalidateOnRefresh: true,
+        },
+      });
+      outroTl
+        .to('.logo', {
+          ease: 'none',
+          scale: 14,
+          duration: 1,
+          autoAlpha: 0,
+          position: 'absolute',
+        })
+        .to(
+          '.content',
+          {
+            autoAlpha: 0,
+            duration: 0.2,
+            ease: 'none',
+          },
+          '<',
+        );
     },
     { scope: heroRef },
   );
 
   return (
     <div className={clsx(styles.wrapper, modifierClasses)} ref={heroRef}>
-      <div className={styles.inner}>
+      <div className={clsx(styles.inner, 'inner')}>
         <h1 className="u-visually-hidden">Thomas Alter</h1>
-        <SvgThomasAlterLogo className={styles.logo} />
-        <div className={clsx(styles.scroll, 'scroll')}>Scroll</div>
-        <div className={clsx(styles.tagline, 'tagline')}>
-          <p>{tagline}</p>
+        <SvgThomasAlterLogo className={clsx(styles.logo, 'logo')} />
+        <div className={clsx(styles.content, 'content')}>
+          <div className={clsx(styles.scroll, 'scroll')}>Scroll</div>
+          <div className={clsx(styles.tagline, 'tagline')}>
+            <p>{tagline}</p>
+          </div>
         </div>
       </div>
     </div>
