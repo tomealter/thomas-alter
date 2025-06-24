@@ -1,6 +1,8 @@
 import { Meta, StoryObj } from '@storybook/nextjs';
 import Hero, { HeroProps } from '../03-components/Hero/Hero';
 import { Default as HeroStory } from '../03-components/Hero/Hero.stories';
+import Marquee from '../03-components/Marquee/Marquee';
+import { Default as MarqueeStory } from '../03-components/Marquee/Marquee.stories';
 import LandingPage from '../04-templates/LandingPage/LandingPage';
 import PageWrapper from './page-wrappers/default';
 
@@ -17,6 +19,7 @@ const Homepage: StoryObj<HomepageStoryArgs> = {
     <PageWrapper>
       <LandingPage title="Homepage" hidePageTitle={true}>
         <Hero {...HeroStory.args} />
+        <Marquee {...MarqueeStory.args} />
       </LandingPage>
     </PageWrapper>
   ),

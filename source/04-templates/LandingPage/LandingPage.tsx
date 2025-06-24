@@ -17,7 +17,7 @@ function LandingPage({
   children,
 }: PageProps): JSX.Element {
   return (
-    <Main id={mainId}>
+    <Main id={mainId} hasConstrain={false}>
       {!hidePageTitle && title && <PageTitle pageTitle={title} />}
       {children}
     </Main>

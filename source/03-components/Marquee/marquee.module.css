@@ -1,0 +1,24 @@
+@layer components {
+  .wrapper {
+    margin-block-start: -850px;
+  }
+
+  .inner {
+    block-size: 100dvh;
+    overflow-x: hidden;
+  }
+
+  .text {
+    color: var(--brand-neon-base);
+    display: block;
+    font-size: 15vw;
+    font-weight: var(--font-weight-bold);
+    inline-size: auto;
+    inset-block-start: 20%;
+    inset-inline-start: 110%;
+    padding-block: 10dvh;
+    position: absolute;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
