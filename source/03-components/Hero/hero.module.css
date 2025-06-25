@@ -4,6 +4,7 @@
   .wrapper {
     block-size: 100dvh;
     max-block-size: 100dvh;
+    overflow: hidden;
   }
   
   .inner {

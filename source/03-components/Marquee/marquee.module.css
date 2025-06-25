@@ -1,17 +1,22 @@
 @layer components {
   .wrapper {
-    margin-block-start: -850px;
+    margin-block-start: -300px;
+
+    &:global(.marquee--work) {
+      margin-block-start: -950px;
+    }
   }
 
   .inner {
     block-size: 100dvh;
+    inline-size: 100%;
     overflow-x: hidden;
   }
 
   .text {
     color: var(--brand-neon-base);
     display: block;
-    font-size: 15vw;
+    font-size: 15vh;
     font-weight: var(--font-weight-bold);
     inline-size: auto;
     inset-block-start: 20%;
@@ -20,5 +25,9 @@
     position: absolute;
     text-transform: uppercase;
     white-space: nowrap;
+
+    @media (--tablet) {
+      font-size: 18vw;
+    }
   }
 }
