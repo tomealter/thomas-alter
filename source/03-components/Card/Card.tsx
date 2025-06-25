@@ -1,66 +1,78 @@
+import SvgArrowAngled from '@/source/01-global/icon/icons/ArrowAngled';
+import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import { GessoComponent } from 'gesso';
+import gsap from 'gsap';
+import Image from 'next/image';
 import Link from 'next/link';
-import { JSX, ReactNode } from 'react';
-import ReadMoreLink from '../ReadMoreLink/ReadMoreLink';
-import { TagProps } from '../Tag/Tag';
-import TagList from '../TagList/TagList';
+import { JSX, useRef } from 'react';
 import styles from './card.module.css';
 
 interface CardProps extends GessoComponent {
-  date?: string;
-  url?: string;
+  url: string;
   title: string;
-  children?: ReactNode;
-  footer?: ReactNode;
-  media?: ReactNode;
-  readMore?: boolean;
-  tags?: TagProps[];
+  imageSrc?: string;
+  eyebrow?: string;
+  summary?: string;
 }
 
 function Card({
-  date,
   url,
   title,
-  children,
-  footer,
-  media,
-  readMore,
-  tags,
+  imageSrc,
+  eyebrow,
+  summary,
   modifierClasses,
 }: CardProps): JSX.Element {
+  const cardRef = useRef<HTMLAnchorElement>(null);
+
+  useGSAP(() => {
+    gsap.fromTo(
+      cardRef.current,
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.inOut',
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: 'top bottom',
+          end: '+=300',
+          scrub: 1,
+          invalidateOnRefresh: true,
+        },
+      },
+    );
+  });
+
   return (
-    <div className={clsx(styles.card, modifierClasses)}>
+    <Link
+      href={url}
+      className={clsx(styles.card, modifierClasses)}
+      ref={cardRef}
+    >
       <div className={styles.body}>
-        <div className={styles.header}>
-          {date && <div className={styles.date}>{date}</div>}
-          <h3 className={styles.title}>
-            {url ? <Link href={url}>{title}</Link> : title}
-          </h3>
-        </div>
-        <div className={styles.content}>{children}</div>
-        {(footer || readMore || tags) && (
-          <div className={styles.footer}>
-            {footer}
-            {tags && (
-              <div className={styles.tags}>
-                <TagList items={tags} />
-              </div>
-            )}
-            {readMore && url && (
-              <div className={styles.readmore}>
-                <ReadMoreLink url={url} title={title} />
-              </div>
-            )}
-          </div>
-        )}
+        {eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}
+        <h3 className={styles.title}>{title}</h3>
+        {summary && <div className={styles.summary}>{summary}</div>}
       </div>
-      {media && (
+      {imageSrc && (
         <div className={styles.media}>
-          {url ? <Link href={url}>{media}</Link> : media}
+          <Image
+            src={imageSrc}
+            alt={title}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            fill
+          />
         </div>
       )}
-    </div>
+      <div className={styles.icon}>
+        <SvgArrowAngled className={styles['icon-arrow']} />
+        <SvgArrowAngled className={styles['icon-arrow']} />
+      </div>
+    </Link>
   );
 }
 

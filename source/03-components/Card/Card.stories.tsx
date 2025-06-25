@@ -2,7 +2,6 @@ import { Meta, StoryObj } from '@storybook/nextjs';
 import { withGlobalWrapper } from '../../../.storybook/decorators';
 import Grid from '../../02-layouts/Grid/Grid';
 import CardComponent from './Card';
-import styles from './card.module.css';
 import cardArgs from './cardArgs';
 
 const meta: Meta<typeof CardComponent> = {
@@ -10,17 +9,6 @@ const meta: Meta<typeof CardComponent> = {
   component: CardComponent,
   decorators: [withGlobalWrapper],
   tags: ['autodocs'],
-  argTypes: {
-    children: {
-      control: false,
-    },
-    tags: {
-      control: false,
-    },
-    media: {
-      control: false,
-    },
-  },
 };
 
 type Story = StoryObj<typeof CardComponent>;
@@ -35,12 +23,5 @@ const Default: Story = {
   ],
 };
 
-const FeatureCard: Story = {
-  args: {
-    ...Default.args,
-    modifierClasses: styles['card--feature'],
-  },
-};
-
 export default meta;
-export { Default, FeatureCard };
+export { Default };

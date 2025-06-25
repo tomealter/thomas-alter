@@ -1,16 +1,77 @@
 @import 'mixins';
 
 @layer components {
+  .icon {
+    align-items: center;
+    background-color: var(--grayscale-gray-7);
+    block-size: 56px;
+    border-radius: 50%;
+    color: var(--brand-neon-base);
+    display: flex;
+    inline-size: 56px;
+    inset-block-start: var(--spacing-2);
+    inset-inline-end: var(--spacing-2);
+    justify-content: center;
+    overflow: hidden;
+    position: absolute;
+    transition: background-color var(--duration-short) var(--easing-ease-in-out);
+  }
+
+  .icon-arrow {
+    block-size: 13px;
+    display: block;
+    inline-size: 13px;
+    opacity: 1;
+    position: absolute;
+    transition: all var(--duration-short) var(--easing-ease-in-out);
+
+    &:last-child {
+      opacity: 0;
+      transform: translate(-56px, 56px);
+    }
+
+    path {
+      fill: currentColor;
+      transition: fill var(--duration-short) var(--easing-ease-in-out);
+    }
+  }
+
   .card {
-    border-block-end: 4px solid var(--ui-accent);
+    block-size: 525px;
+    border: 2px solid var(--grayscale-white);
+    border-radius: var(--spacing-3);
     box-shadow: var(--box-shadow-1);
     display: flex;
     flex-direction: column;
-    transition: box-shadow var(--duration-short) var(--easing-ease-in-out);
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    transition: border-color var(--duration-short) var(--easing-ease-in-out);
 
     &:hover,
-    &:focus-within {
-      box-shadow: var(--box-shadow-3);
+    &:focus {
+      border-color: var(--brand-neon-base);
+
+      .icon {
+        background-color: var(--brand-neon-base);
+        color: var(--grayscale-gray-7);
+
+        svg {
+          path {
+            fill: currentColor;
+          }
+        }
+      }
+
+      .icon-arrow {
+        opacity: 0;
+        transform: translate(56px, -56px);
+
+        &:last-child {
+          opacity: 1;
+          transform: translate(0, 0);
+        }
+      }
     }
   }
 
@@ -18,76 +79,58 @@
     @include set-link-vars(var(--text-on-light), var(--ui-text-dark));
 
     font-size: var(--font-size-7);
-    margin: 0;
+    margin-block: 0 var(--spacing-1-5);
+    text-transform: uppercase;
   }
 
   .body {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    justify-content: flex-end;
     padding: var(--spacing-3);
   }
 
-  .header {
-    margin-block-end: var(--spacing-3);
+  .summary {
+    color: var(--grayscale-white);
+    font-size: var(--font-size-3);
+    margin: 0;
   }
 
-  .date {
-    color: var(--ui-text-dark);
+  .eyebrow {
+    font-family: var(--font-family-secondary);
     font-size: var(--font-size-2);
-    margin-block-end: var(--spacing-2);
-  }
-
-  .content {
-    margin-block-end: var(--spacing-3);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 1px;
+    margin-block-end: var(--spacing-1-5);
+    text-transform: uppercase;
   }
 
   .media {
-    order: -1;
-
-    & a {
-      block-size: 100%;
-      display: block;
-      inline-size: 100%;
-    }
+    inset: 0;
+    position: absolute;
+    z-index: -1;
 
     & img {
+      block-size: 100%;
       inline-size: 100%;
-    }
-  }
-
-  .footer {
-    margin-block-start: auto;
-  }
-
-  .tags {
-    margin-block-end: var(--spacing-2);
-  }
-
-  .readmore {
-    text-align: right;
-  }
-
-  .card--feature {
-    & .media {
-      flex-grow: 1;
+      object-fit: cover;
+      object-position: center;
     }
 
-    @media (--desktop) {
-      flex-direction: row;
-
-      & .title {
-        font-size: var(--font-size-8);
-      }
-
-      & .body {
-        max-block-size: 600px;
-        padding-inline: 2vw;
-      }
-
-      & .media {
-        order: initial;
-      }
+    &::after {
+      background: linear-gradient(
+        to bottom,
+        rgb(0 0 0 / 0%) 0%,
+        rgb(0 0 0 / 65%) 50%,
+        rgb(0 0 0 / 90%) 100%
+      );
+      block-size: 100%;
+      content: '';
+      display: block;
+      inline-size: 100%;
+      inset: 0;
+      position: absolute;
     }
   }
 }

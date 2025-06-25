@@ -26,6 +26,7 @@ function Marquee({ modifierClasses, text }: MarqueeProps): JSX.Element {
           scrub: 1,
           pin: true,
           markers: false,
+          invalidateOnRefresh: true,
         },
       });
     },

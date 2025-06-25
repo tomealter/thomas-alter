@@ -18,11 +18,11 @@
 
   --gutter-width: rem-convert(40px);
 
-  --site-margins: rem-convert(16px);
+  --site-margins: rem-convert(28px);
 }
 
 @media (--desktop) {
   :root {
-    --site-margins: rem-convert(32px);
+    --site-margins: rem-convert(48px);
   }
 }

@@ -1,6 +1,8 @@
+import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import { ConstrainComponent } from 'gesso';
-import { ElementType, JSX, ReactNode } from 'react';
+import gsap from 'gsap';
+import { ElementType, JSX, ReactNode, useRef } from 'react';
 import Constrain from '../Constrain/Constrain';
 import styles from './section.module.css';
 
@@ -18,10 +20,42 @@ function Section({
   hasConstrain = true,
   constrainClasses,
 }: SectionProps): JSX.Element {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useGSAP(
+    () => {
+      gsap.fromTo(
+        '.title',
+        {
+          autoAlpha: 1,
+        },
+        {
+          autoAlpha: 0,
+          duration: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'bottom 75%',
+            end: 'bottom 50%',
+            scrub: 0,
+            invalidateOnRefresh: true,
+          },
+        },
+      );
+    },
+    { scope: sectionRef },
+  );
+
   return (
-    <section className={clsx(styles.section, modifierClasses)}>
+    <section className={clsx(styles.section, modifierClasses)} ref={sectionRef}>
       <Constrain isHidden={!hasConstrain} modifierClasses={constrainClasses}>
-        {title && <TitleElement className={styles.title}>{title}</TitleElement>}
+        <div className={styles['title-wrapper']}>
+          {title && (
+            <TitleElement className={clsx(styles.title, 'title')}>
+              {title}
+            </TitleElement>
+          )}
+        </div>
         <div className={styles.content}>{children}</div>
       </Constrain>
     </section>

@@ -66,8 +66,7 @@ function Hero({ modifierClasses, tagline }: HeroProps): JSX.Element {
           start: 'top top',
           end: '+=600',
           pin: true,
-          scrub: 1,
-          markers: false,
+          scrub: 0.3,
           invalidateOnRefresh: true,
         },
       });
