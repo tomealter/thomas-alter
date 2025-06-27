@@ -3,4 +3,5 @@
 @import 'accessibility.css' layer(utility);
 @import 'alignment.css' layer(utility);
 @import 'clearfix.css' layer(utility);
+@import 'next-toast.css' layer(utility);
 @import 'spacing.css' layer(utility);

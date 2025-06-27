@@ -1,3 +1,5 @@
+'use client';
+
 import Menu from '@/source/03-components/Menu/Menu';
 import MenuButton from '@/source/03-components/MenuButton/MenuButton';
 import { useGSAP } from '@gsap/react';
@@ -55,7 +57,7 @@ function Frame({ modifierClasses, children }: FrameProps): JSX.Element {
           items={[
             {
               title: 'Home',
-              url: '#home',
+              url: '#top',
             },
             {
               title: 'Work',
