@@ -1,0 +1,44 @@
+@layer components {
+  .wrapper {
+    margin-block: var(--spacing-4);
+  }
+
+  .list {
+    display: flex;
+    gap: var(--spacing-2);
+    padding: 0;
+  }
+
+  .item {
+    list-style: none;
+  }
+
+  .icon {
+    block-size: 28px;
+    color: var(--grayscale-gray-7);
+    inline-size: 28px;
+    transition: transform var(--duration-standard)
+      var(--easing-ease-in-out);
+
+    path {
+      fill: currentColor;
+    }
+  }
+
+  .link {
+    align-items: center;
+    background-color: var(--grayscale-white);
+    block-size: var(--spacing-7);
+    border-radius: 50%;
+    display: flex;
+    inline-size: var(--spacing-7);
+    justify-content: center;
+    transition: background-color var(--duration-standard)
+      var(--easing-ease-in-out);
+
+    &:hover,
+    &:focus {
+      background-color: var(--brand-neon-base);
+    }
+  }
+}

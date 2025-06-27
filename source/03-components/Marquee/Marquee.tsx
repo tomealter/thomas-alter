@@ -17,12 +17,12 @@ function Marquee({ modifierClasses, text }: MarqueeProps): JSX.Element {
   useGSAP(
     () => {
       gsap.to('.marquee-text', {
-        transform: 'translateX(-110%)',
+        transform: 'translateX(-120%)',
         ease: 'none',
         scrollTrigger: {
           trigger: '.inner',
           start: 'top top',
-          end: '+=1500',
+          end: '+=1800',
           scrub: 1,
           pin: true,
           markers: false,

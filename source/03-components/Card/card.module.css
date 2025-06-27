@@ -80,7 +80,6 @@
 
     font-size: var(--font-size-7);
     margin-block: 0 var(--spacing-1-5);
-    text-transform: uppercase;
   }
 
   .body {
@@ -113,6 +112,8 @@
 
     & img {
       block-size: 100%;
+
+      /* filter: grayscale(100%) contrast(1.4); */
       inline-size: 100%;
       object-fit: cover;
       object-position: center;
@@ -130,7 +131,25 @@
       display: block;
       inline-size: 100%;
       inset: 0;
+      pointer-events: none;
       position: absolute;
     }
+
+    /* &::after {
+      background: linear-gradient(
+        to bottom,
+        rgb(0 0 0 / 0%) 0%,
+        rgb(0 0 0 / 65%) 50%,
+        rgb(0 0 0 / 90%) 100%
+      );
+      background-color: #7029ec;
+      block-size: 100%;
+      content: '';
+      display: block;
+      inline-size: 100%;
+      inset: 0;
+      mix-blend-mode: hard-light;
+      position: absolute;
+    } */
   }
 }

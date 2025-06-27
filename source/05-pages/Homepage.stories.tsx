@@ -1,10 +1,13 @@
 import { Meta, StoryObj } from '@storybook/nextjs';
 import Grid from '../02-layouts/Grid/Grid';
 import Section from '../02-layouts/Section/Section';
+import AnimatedText from '../03-components/AnimatedText/AnimatedText';
 import Card from '../03-components/Card/Card';
+import ContactMenu from '../03-components/ContactMenu/ContactMenu';
 import Hero, { HeroProps } from '../03-components/Hero/Hero';
 import { Default as HeroStory } from '../03-components/Hero/Hero.stories';
 import Marquee from '../03-components/Marquee/Marquee';
+import RichText from '../03-components/RichText/RichText';
 import LandingPage from '../04-templates/LandingPage/LandingPage';
 import PageWrapper from './page-wrappers/default';
 
@@ -113,9 +116,38 @@ const Homepage: StoryObj<HomepageStoryArgs> = {
             />
           </Grid>
         </Section>
-        <Marquee text="Too Many Hobbies // Not Enough Time" />
-        <Section title="About">
-          <h3>About Me</h3>
+        <Marquee text="Developer // Woodworker // Dog Lover // Drummer" />
+        <Section title="About" modifierClasses="u-spacing-block-end-20">
+          <AnimatedText text="I'm a Front-End UI Engineer with 12 years of experience bringing pixels to life. I specialize in building robust design systems and crafting smooth, engaging animations that make interfaces feel just right. Whether it's architecting scalable components, optimizing performance, or theming for modern CMS platforms, I bring both technical precision and creative flair to every project." />
+          <RichText>
+            <dl>
+              <dt className="fade-in">Core Technoligies & Frameworks</dt>
+              <dd className="fade-in">
+                HTML, CSS, JavaScript, PHP, Twig, React, Next.js
+              </dd>
+              <dt className="fade-in">Styling & UI</dt>
+              <dd className="fade-in">
+                SCSS, CSS Modules, Tailwind, Emotion, PostCSS
+              </dd>
+              <dt className="fade-in">Animation & Interaction</dt>
+              <dd className="fade-in">GSAP, Framer Motion, Three.js</dd>
+              <dt className="fade-in">Tooling & DevOps</dt>
+              <dd className="fade-in">
+                Git, Webpack, Docker, DDEV, Buildkite, Jenkins, Vercel, Jira
+              </dd>
+              <dt className="fade-in">Component & Design System Tools</dt>
+              <dd className="fade-in">Storybook, PatternLab</dd>
+            </dl>
+          </RichText>
+          <RichText>
+            <h3 className="fade-in">Hit Me Up</h3>
+            <p className="fade-in">
+              I'm always looking for new opportunities to work on interesting
+              projects. If you have a project in mind, or just want to say hi,
+              feel free to reach out.
+            </p>
+            <ContactMenu modifierClasses="fade-in" />
+          </RichText>
         </Section>
       </LandingPage>
     </PageWrapper>
