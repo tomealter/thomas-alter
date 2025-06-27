@@ -1,5 +1,6 @@
 @layer layouts {
   .site-container {
+    opacity: 0;
   }
 
   .background {

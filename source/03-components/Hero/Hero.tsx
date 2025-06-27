@@ -21,45 +21,47 @@ function Hero({ modifierClasses, tagline }: HeroProps): JSX.Element {
     () => {
       const introTl = gsap.timeline();
       // Animate hero in on load
-      introTl.fromTo(
-        '.logo-1',
-        {
-          x: '100%',
-          autoAlpha: 0,
-        },
-        {
-          duration: 1.75,
-          ease: 'power4.inOut',
-          x: 0,
-          autoAlpha: 1,
-        },
-      );
-      introTl.fromTo(
-        '.logo-2',
-        {
-          x: '-100%',
-          autoAlpha: 0,
-        },
-        {
-          duration: 1.75,
-          ease: 'power4.inOut',
-          x: 0,
-          autoAlpha: 1,
-        },
-        '<',
-      );
-      introTl.fromTo(
-        ['.tagline', '.scroll'],
-        {
-          autoAlpha: 0,
-        },
-        {
-          duration: 1,
-          ease: 'power3.inOut',
-          autoAlpha: 1,
-        },
-        '>',
-      );
+      introTl
+        .fromTo(
+          '.logo-1',
+          {
+            x: '100%',
+            autoAlpha: 0,
+          },
+          {
+            duration: 1.75,
+            ease: 'power4.inOut',
+            x: 0,
+            autoAlpha: 1,
+            delay: 0.5,
+          },
+        )
+        .fromTo(
+          '.logo-2',
+          {
+            x: '-100%',
+            autoAlpha: 0,
+          },
+          {
+            duration: 1.75,
+            ease: 'power4.inOut',
+            x: 0,
+            autoAlpha: 1,
+          },
+          '<',
+        )
+        .fromTo(
+          ['.tagline', '.scroll'],
+          {
+            autoAlpha: 0,
+          },
+          {
+            duration: 1,
+            ease: 'power3.inOut',
+            autoAlpha: 1,
+          },
+          '>',
+        );
 
       // On scroll animate hero out
       const outroTl = gsap.timeline({
