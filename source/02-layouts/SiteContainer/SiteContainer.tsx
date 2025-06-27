@@ -15,11 +15,17 @@ function SiteContainer({ children }: SiteContainerProps): JSX.Element {
   const siteContainerRef = useRef<HTMLDivElement>(null);
 
   useGSAP(() => {
-    gsap.to(siteContainerRef.current, {
-      opacity: 1,
-      duration: 1,
-      ease: 'power2.inOut',
-    });
+    gsap.fromTo(
+      siteContainerRef.current,
+      {
+        autoAlpha: 0,
+      },
+      {
+        autoAlpha: 1,
+        duration: 1,
+        ease: 'power2.inOut',
+      },
+    );
   });
 
   return (
