@@ -1,3 +1,5 @@
+'use client';
+
 import SvgThomasAlterLogo from '@/source/01-global/icon/icons/ThomasAlterLogo';
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
@@ -92,7 +94,11 @@ function Hero({ modifierClasses, tagline }: HeroProps): JSX.Element {
   );
 
   return (
-    <div className={clsx(styles.wrapper, modifierClasses)} ref={heroRef}>
+    <div
+      className={clsx(styles.wrapper, modifierClasses)}
+      ref={heroRef}
+      id="home"
+    >
       <div className={clsx(styles.inner, 'inner')}>
         <h1 className="u-visually-hidden">Thomas Alter</h1>
         <SvgThomasAlterLogo className={clsx(styles.logo, 'logo')} />

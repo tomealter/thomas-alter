@@ -2,6 +2,7 @@
   .section {
     margin-bottom: var(--spacing-5);
     position: relative;
+    scroll-padding-block-start: var(--spacing-4);
   }
 
   .title-wrapper {

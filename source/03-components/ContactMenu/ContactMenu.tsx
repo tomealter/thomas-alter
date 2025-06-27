@@ -15,25 +15,41 @@ function ContactMenu({ modifierClasses }: ContactMenuProps): JSX.Element {
     <div className={clsx(styles.wrapper, modifierClasses)}>
       <ul className={styles.list}>
         <li className={styles.item}>
-          <Link href="#0" className={styles.link}>
+          <Link
+            href="https://github.com/tomealter"
+            className={styles.link}
+            target="_blank"
+          >
             <span className="u-visually-hidden">GitHub</span>
             <SvgGithub className={styles.icon} />
           </Link>
         </li>
         <li className={styles.item}>
-          <Link href="#0" className={styles.link}>
+          <Link
+            href="https://www.linkedin.com/in/thomas-alter-355b6147/"
+            className={styles.link}
+            target="_blank"
+          >
             <span className="u-visually-hidden">LinkedIn</span>
             <SvgLinkedin className={styles.icon} />
           </Link>
         </li>
         <li className={styles.item}>
-          <Link href="#0" className={styles.link}>
+          <Link
+            href="https://codepen.io/tomealter"
+            className={styles.link}
+            target="_blank"
+          >
             <span className="u-visually-hidden">Codepen</span>
             <SvgCodepen className={styles.icon} />
           </Link>
         </li>
         <li className={styles.item}>
-          <Link href="#0" className={styles.link}>
+          <Link
+            href="mailto:tomealter@gmail.com"
+            className={styles.link}
+            target="_blank"
+          >
             <span className="u-visually-hidden">Email</span>
             <SvgEmail className={styles.icon} />
           </Link>

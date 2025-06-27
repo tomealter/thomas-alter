@@ -1,3 +1,5 @@
+'use client';
+
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
 import { GessoComponent } from 'gesso';

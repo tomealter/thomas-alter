@@ -1,3 +1,5 @@
+'use client';
+
 import SvgArrowAngled from '@/source/01-global/icon/icons/ArrowAngled';
 import { useGSAP } from '@gsap/react';
 import clsx from 'clsx';
@@ -54,6 +56,7 @@ function Card({
       href={url}
       className={clsx(styles.card, modifierClasses)}
       ref={cardRef}
+      target="_blank"
     >
       <div className={styles.body}>
         {eyebrow && <div className={styles.eyebrow}>{eyebrow}</div>}

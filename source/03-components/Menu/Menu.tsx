@@ -31,6 +31,23 @@ function MenuLinks({
   itemClasses,
   linkClasses,
 }: MenuLinksProps) {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // If href is an anchor, scroll to the element
+    if (e.currentTarget.href.includes('#')) {
+      const { hash } = e.currentTarget;
+      const element = document.querySelector(hash);
+      if (element) {
+        const elementPosition =
+          element.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({
+          top: elementPosition - 100,
+          behavior: 'smooth',
+        });
+      }
+    }
+  };
+
   return (
     <ul
       className={clsx(
@@ -48,7 +65,11 @@ function MenuLinks({
             itemClasses,
           )}
         >
-          <Link href={item.url} className={clsx(styles.link, linkClasses)}>
+          <Link
+            href={item.url}
+            className={clsx(styles.link, linkClasses)}
+            onClick={handleClick}
+          >
             {item.title}
           </Link>
           {item.below && (

@@ -1,3 +1,5 @@
+'use client';
+
 import Constrain, {
   styles as constrainStyles,
 } from '@/source/02-layouts/Constrain/Constrain';
