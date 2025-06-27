@@ -1,6 +1,7 @@
 @layer components {
   .wrapper {
     margin-block-start: -300px;
+    pointer-events: none;
 
     &:global(.marquee--work) {
       margin-block-start: -950px;
@@ -16,18 +17,19 @@
   .text {
     color: var(--brand-neon-base);
     display: block;
-    font-size: 15vh;
+    font-size: 13vh;
     font-weight: var(--font-weight-bold);
     inline-size: auto;
     inset-block-start: 20%;
     inset-inline-start: 110%;
     padding-block: 10dvh;
+    pointer-events: visible;
     position: absolute;
     text-transform: uppercase;
     white-space: nowrap;
 
     @media (--tablet) {
-      font-size: 18vw;
+      font-size: 20vh;
     }
   }
 }

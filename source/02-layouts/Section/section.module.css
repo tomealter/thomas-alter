@@ -74,11 +74,11 @@
     padding-inline-start: 0;
 
     @media (--tablet) {
-      padding-inline-start: var(--spacing-5);
+      padding-inline-start: var(--spacing-7);
     }
 
     @media (--tablet-lg) {
-      padding-inline-start: var(--spacing-8);
+      padding-inline-start: var(--spacing-9);
     }
   }
 }

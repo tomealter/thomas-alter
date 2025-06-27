@@ -31,15 +31,17 @@ function Card({
       cardRef.current,
       {
         opacity: 0,
+        y: 40,
       },
       {
         opacity: 1,
+        y: 0,
         duration: 1,
         ease: 'power2.inOut',
         scrollTrigger: {
           trigger: cardRef.current,
           start: 'top bottom',
-          end: '+=300',
+          end: '+=200',
           scrub: 1,
           invalidateOnRefresh: true,
         },

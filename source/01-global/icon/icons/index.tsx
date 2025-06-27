@@ -25,7 +25,16 @@ const Icons = {
   Close: dynamic(() => import('./Close'), {
     loading: () => <svg className="icon"></svg>,
   }),
+  Codepen: dynamic(() => import('./Codepen'), {
+    loading: () => <svg className="icon"></svg>,
+  }),
+  Email: dynamic(() => import('./Email'), {
+    loading: () => <svg className="icon"></svg>,
+  }),
   Facebook: dynamic(() => import('./Facebook'), {
+    loading: () => <svg className="icon"></svg>,
+  }),
+  Github: dynamic(() => import('./Github'), {
     loading: () => <svg className="icon"></svg>,
   }),
   Linkedin: dynamic(() => import('./Linkedin'), {

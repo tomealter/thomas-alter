@@ -1,0 +1,42 @@
+// organize-imports-ignore
+// This component is automatically generated.
+// SVGs should be added to icon/svgs.
+// See the project documentation for more information.
+// tslint:disable:ordered-imports
+import clsx from 'clsx';
+import * as React from 'react';
+import type { SVGProps } from 'react';
+interface SVGRProps {
+  title?: string;
+  titleId?: string;
+  isHidden?: boolean;
+  modifierClasses?: string | string[];
+}
+const SvgCodepen = ({
+  modifierClasses,
+  isHidden,
+  title,
+  titleId,
+  ...props
+}: SVGProps<SVGSVGElement> & SVGRProps) => {
+  return (
+    <svg
+      role={title ? 'img' : undefined}
+      aria-hidden={isHidden ? 'true' : 'false'}
+      id="Layer_1"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24.3 24.3"
+      className={clsx('icon', modifierClasses)}
+      aria-labelledby={titleId}
+      {...props}
+    >
+      {title ? <title id={titleId}>{title}</title> : null}
+      <path d="M12.1,24.2c-.2,0-.4,0-.6-.2L.5,16.9c-.3-.2-.5-.6-.5-1v-7.4c0-.4.2-.7.5-1L11.5.1c.4-.3.9-.3,1.3,0l11,7.4c.3.2.5.6.5,1v7.4c0,.4-.2.8-.5,1l-11,7.2c-.2.1-.4.2-.6.2ZM2.2,15.3l9.9,6.4,9.8-6.4v-6.2L12.1,2.5,2.2,9.1v6.2Z" />
+      <path d="M1.1,17.1c-.4,0-.7-.2-1-.5-.4-.5-.2-1.2.3-1.6l11-7.4c.4-.3.9-.3,1.3,0l11,7.4c.5.4.7,1.1.3,1.6s-1.1.7-1.6.3l-10.4-7L1.7,16.9c-.2.1-.4.2-.6.2Z" />
+      <path d="M12.1,17c-.2,0-.4,0-.6-.2L.5,9.5c-.5-.4-.7-1.1-.3-1.6.4-.5,1.1-.7,1.6-.3l10.4,6.9,10.4-6.9c.5-.4,1.2-.2,1.6.3.4.5.2,1.2-.3,1.6l-11,7.3c-.2.1-.4.2-.6.2Z" />
+      <path d="M12.1,9.6c-.6,0-1.1-.5-1.1-1.1V1.1c0-.6.5-1.1,1.1-1.1s1.1.5,1.1,1.1v7.4c0,.6-.5,1.1-1.1,1.1Z" />
+      <path d="M12.1,24.2c-.6,0-1.1-.5-1.1-1.2v-7.2c0-.6.5-1.2,1.1-1.2s1.1.5,1.1,1.2v7.2c0,.6-.5,1.2-1.1,1.2Z" />
+    </svg>
+  );
+};
+export default SvgCodepen;

@@ -1,0 +1,10 @@
+@layer components {
+  .wrapper {
+    margin-block: var(--spacing-12);
+  }
+
+  .content {
+    font-size: var(--responsive-font-size-4);
+    max-inline-size: var(--constrain-xs);
+  }
+}

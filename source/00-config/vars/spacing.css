@@ -15,6 +15,7 @@
   --spacing-10: rem-convert(80px);
   --spacing-12: rem-convert(96px);
   --spacing-15: rem-convert(120px);
+  --spacing-20: rem-convert(160px);
 
   --gutter-width: rem-convert(40px);
 

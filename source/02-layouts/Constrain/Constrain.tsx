@@ -21,4 +21,5 @@ function Constrain({
 }
 
 export default Constrain;
+export { styles };
 export type { ConstrainProps };

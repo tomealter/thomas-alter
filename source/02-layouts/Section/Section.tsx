@@ -47,7 +47,11 @@ function Section({
   );
 
   return (
-    <section className={clsx(styles.section, modifierClasses)} ref={sectionRef}>
+    <section
+      className={clsx(styles.section, modifierClasses)}
+      ref={sectionRef}
+      id={title?.toLowerCase()}
+    >
       <Constrain isHidden={!hasConstrain} modifierClasses={constrainClasses}>
         <div className={styles['title-wrapper']}>
           {title && (
