@@ -120,7 +120,8 @@ function Home() {
           <dl>
             <dt className="fade-in">Core Technoligies & Frameworks</dt>
             <dd className="fade-in">
-              HTML, CSS, JavaScript, PHP, Twig, React, Next.js
+              HTML, CSS, JavaScript, TypeScript, React, Next.js, GraphQL, PHP,
+              Twig
             </dd>
             <dt className="fade-in">Styling & UI</dt>
             <dd className="fade-in">
